@@ -14,7 +14,7 @@ intents.members = True  # needed to DM members
 bot = commands.Bot(command_prefix="!", intents=intents)
 
 # Channel where standup summaries will be posted
-STANDUP_CHANNEL_ID = 1418487900802387989  # 🔹 replace with your channel ID
+STANDUP_CHANNEL_ID = 1418133945484181564  # 🔹 replace with your channel ID
 
 # Store responses per member (reset daily)
 responses = {}
@@ -60,7 +60,7 @@ async def ask_questions(member):
     msg3 = await bot.wait_for("message", check=check)
     responses[member.id]["blockers"] = msg3.content
 
-    await member.send("✅ Thanks! Your standup has been recorded.")
+    await member.send("Thanks! Your standup has been recorded.")
 
     # Post summary in channel
     await post_summary(member)
@@ -88,3 +88,4 @@ async def standup(ctx):
 
 # ---------------- RUN BOT ---------------- #
 bot.run(TOKEN)
+
